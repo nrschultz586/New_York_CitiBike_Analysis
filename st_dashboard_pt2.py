@@ -28,12 +28,22 @@ page = st.sidebar.selectbox(
 
 
 ########################## Import data ###########################################################################################
-
+"""
 #set path
 path = r'https://github.com/nrschultz586/New_York_CitiBike_Analysis/tree/main/Data/Prepared_Data'
 top20 = pd.read_csv(os.path.join(path, 'top_20.csv'), index_col = 0)
 df_DualAxis = pd.read_csv(os.path.join(path, 'avgTemp_BikeRidesDaily.csv'), index_col = 0)
 RideDuration_top20 = pd.read_csv(os.path.join(path, 'RideDuration_top20.csv'))
+"""
+# Define the correct URLs
+top20_url = "https://raw.githubusercontent.com/nrschultz586/New_York_CitiBike_Analysis/main/Data/Prepared_Data/top_20.csv"
+df_DualAxis_url = "https://raw.githubusercontent.com/nrschultz586/New_York_CitiBike_Analysis/main/Data/Prepared_Data/avgTemp_BikeRidesDaily.csv"
+RideDuration_top20_url = "https://raw.githubusercontent.com/nrschultz586/New_York_CitiBike_Analysis/main/Data/Prepared_Data/RideDuration_top20.csv"
+
+# Read CSVs directly from GitHub
+top20 = pd.read_csv(top20_url, index_col=0)
+df_DualAxis = pd.read_csv(df_DualAxis_url, index_col=0)
+RideDuration_top20 = pd.read_csv(RideDuration_top20_url)
 
 ######################################### DEFINE THE PAGES #####################################################################
 
