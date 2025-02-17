@@ -23,7 +23,7 @@ st.title("Citi Bikes Strategy Dashboard")
 st.sidebar.title("Navigation")
 page = st.sidebar.selectbox(
     "Select a section:",
-    ["Introduction", "Weather Impact on Bike Usage", "Most Popular Stations", "Interactive Map of Bike Trips", "Ride Duration Analysis", "Station Demand Analysis", "Strategic Recommendations"]
+    ["Introduction", "Weather Impact on Bike Usage", "Most Popular Stations", "Interactive Map of Bike Trips", "Ride Duration Analysis", "Strategic Recommendations"]
 )
 
 
@@ -33,7 +33,6 @@ page = st.sidebar.selectbox(
 path = r'C:\Users\nrsmi\Documents\CareerFoundry\New_York_CitiBike_Analysis\Data\Prepared_Data'
 top20 = pd.read_csv(os.path.join(path, 'top_20.csv'), index_col = 0)
 df_DualAxis = pd.read_csv(os.path.join(path, 'avgTemp_BikeRidesDaily.csv'), index_col = 0)
-df = pd.read_csv(os.path.join(path, 'reduced_data_to_plot_7.csv'), index_col = 0)
 RideDuration_top20 = pd.read_csv(os.path.join(path, 'RideDuration_top20.csv'))
 
 ######################################### DEFINE THE PAGES #####################################################################
@@ -78,7 +77,7 @@ if page == "Introduction":
 
 
 
-### Dual-Axis Bar Chart ###
+### Dual-Axis Line Chart ###
     
 if page == "Weather Impact on Bike Usage":
     st.header("Weather Impact on Bike Usage")
@@ -251,64 +250,6 @@ if page == "Ride Duration Analysis":
        - Longer-duration stations might require more available bikes, while shorter-duration stations might benefit from better redistribution of idle bikes.  
     """)
     
-# Trip Count Heatmap Page
-if page == "Station Demand Analysis":
-    st.header("Station Demand Analysis: Trip Count Visualization")
-    
-    # Aggregate trip counts by station
-    station_counts = df.groupby("start_station_name")["ride_duration"].count().reset_index()
-    station_counts = station_counts.rename(columns={"ride_duration": "trip_count"})
-
-    # Select Top N Stations (Filter)
-    top_n = st.sidebar.slider("Select Number of Stations to Display", 5, 30, 15)
-
-    # Sort by highest trip counts for better visualization
-    station_counts = station_counts.sort_values(by="trip_count", ascending=False).head(top_n)
-    
-    # Heatmap Visualization
-    fig, ax = plt.subplots(figsize=(10, 6))
-    sns.heatmap(
-        station_counts.pivot_table(index="start_station_name", values="trip_count").sort_values(by="trip_count", ascending=False),
-        cmap="Blues",
-        annot=True,
-        fmt=".0f",
-        linewidths=0.5,
-        cbar_kws={'label': 'Number of Trips'}
-    )
-
-    ax.set_title("Heatmap of Trip Counts Per Station", fontsize=14, color="white")
-    ax.set_xlabel("")
-    ax.set_ylabel("Bike Station", fontsize=12, color="black")
-
-    plt.xticks(color="black")
-    plt.yticks(color="black", fontsize=10)
-
-    # Show plot
-    st.pyplot(fig)
-
-    # Markdown Interpretation Section
-    st.markdown("### **Key Observations from the Heatmap:**")
-    st.markdown("""
-    ### **Key Takeaways**
-    - **Stations with the Highest Trip Counts**  
-       - The busiest station, **W 21 St & 6 Ave**, has **10,213 trips**, making it the most frequently used location in the dataset.  
-       - Other high-traffic stations include **West St & Chambers St (9,860 trips)** and **Broadway & W 58 St (9,032 trips)**.  
-       - These stations likely serve **high-traffic commuter zones** or **popular tourist areas**.  
-    
-    - **Gradual Decline in Trip Counts**  
-       - There is a noticeable **decrease in trip counts from the top station (~10,000 trips) to the lower-ranked stations (~6,000 trips)**.  
-       - This suggests that while some stations experience **heavy demand**, others may have **moderate but consistent usage**.  
-    
-    - **Possible Reasons for High Trip Counts**  
-       - **Proximity to Business Districts**: Many of these stations may be located **near offices or major transit hubs**, leading to frequent commuter trips.  
-       - **Tourist Hotspots**: Stations near **parks, landmarks, and entertainment areas** could attract casual riders and visitors.  
-       - **Connectivity Hubs**: Some stations might act as **transfer points**, where riders pick up or drop off bikes between longer commutes.  
-    
-    - **Implications for Citi Bike Distribution**  
-       - Stations with **higher trip counts might require more bikes** to meet demand, particularly during rush hours.  
-       - A **rebalancing strategy** could be implemented to **move bikes from lower-use stations to high-demand areas**.  
-       - Citi Bike may benefit from **expanding docking stations** in the busiest areas to **reduce shortages during peak times**.   
-    """)
 
 # Recommendations Page
 if page == "Strategic Recommendations":
