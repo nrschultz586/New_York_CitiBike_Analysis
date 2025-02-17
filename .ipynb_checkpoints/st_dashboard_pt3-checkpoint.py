@@ -168,7 +168,7 @@ if page == "Interactive Map of Bike Trips":
     st.header("Bike Trip Patterns Across New York City")
 
     # Add the map
-    path_to_html = 'https://raw.githubusercontent.com/nrschultz586/New_York_CitiBike_Analysis/main/Bike Trips Aggregated.html'  # Ensure this file is available in the working directory
+    path_to_html = 'https://raw.githubusercontent.com/nrschultz586/New_York_CitiBike_Analysis/main/Bike%20Trips%20Aggregated.html'  # Ensure this file is available in the working directory
 
     try:
         with open(path_to_html, 'r', encoding='utf-8') as f:
