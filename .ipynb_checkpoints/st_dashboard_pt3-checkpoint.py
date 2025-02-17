@@ -169,7 +169,7 @@ if page == "Interactive Map of Bike Trips":
     st.header("Bike Trip Patterns Across New York City")
 
     # Load the HTML file from local storage
-    html_file = "Bike_Trips_Aggregated.html"  # Ensure this file exists in the same directory
+    html_file = "https://github.com/nrschultz586/New_York_CitiBike_Analysis/blob/main/Bike_Trips_Aggregated.html"  # Ensure this file exists in the same directory
     
     try:
         with open(html_file, "r", encoding="utf-8") as file:
