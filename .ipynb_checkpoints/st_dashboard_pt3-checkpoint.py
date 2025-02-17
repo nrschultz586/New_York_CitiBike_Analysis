@@ -168,18 +168,18 @@ if page == "Most Popular Stations":
 if page == "Interactive Map of Bike Trips":
     st.header("Bike Trip Patterns Across New York City")
 
-    # Add the map
-    html_url = 'https://github.com/nrschultz586/New_York_CitiBike_Analysis/blob/main/Bike%20Trips%20Aggregated.html'  # Ensure this file is available in the working directory
-
-    # Fetch the HTML file content
-    response = requests.get(html_url)
+    # Load the HTML file from local storage
+    html_file = "Bike_Trips_Aggregated.html"  # Ensure this file exists in the same directory
     
-    # Check if the request was successful
-    if response.status_code == 200:
-        html_data = response.text  # Store HTML content
-        st.components.v1.html(html_data, height=800)  # Display in Streamlit
-    else:
-        st.error("Failed to load the HTML file from GitHub.")
+    try:
+        with open(html_file, "r", encoding="utf-8") as file:
+            html_data = file.read()
+    
+        # Display the HTML in Streamlit
+        st.components.v1.html(html_data, height=1000)
+    
+    except FileNotFoundError:
+        st.error(f"Error: {html_file} not found. Make sure the file is in the app's directory.")
 
     # Markdown Interpretation Section
     st.markdown("### **Key Observations from the Map:**")
