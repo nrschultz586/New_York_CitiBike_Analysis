@@ -3,6 +3,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import requests
 import os
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
@@ -168,12 +169,18 @@ if page == "Interactive Map of Bike Trips":
     st.header("Bike Trip Patterns Across New York City")
 
     # Add the map
-    path_to_html = 'https://github.com/nrschultz586/New_York_CitiBike_Analysis/blob/main/Bike Trips Aggregated.html'  # Ensure this file is available in the working directory
+    html_url = 'https://raw.githubusercontent.com/nrschultz586/New_York_CitiBike_Analysis/main/Bike%20Trips%20Aggregated.html'  # Ensure this file is available in the working directory
 
+    # Fetch the HTML file content
+    response = requests.get(html_url)
+    
     try:
-        with open(path_to_html, 'r', encoding='utf-8') as f:
-            html_data = f.read()
+        with open('Bike_Trips_Aggregated.html', 'w', encoding='utf-8') as f:
+            f.write(response.text)
 
+        # Display confirmation
+        print("HTML file successfully downloaded and saved!")
+        
         st.subheader("Visualizing Citi Bike Usage Across NYC")
         st.components.v1.html(html_data, height=1000)
 
