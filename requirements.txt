@@ -1,6 +1,11 @@
 plotly
+pandas
+numpy
+os
+seaborn
 streamlit
 matplotlib
 streamlit_keplergl
 numerize
 pillow
+datetime
