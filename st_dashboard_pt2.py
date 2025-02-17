@@ -30,7 +30,7 @@ page = st.sidebar.selectbox(
 ########################## Import data ###########################################################################################
 
 #set path
-path = r'github.com/nrschultz586/New_York_CitiBike_Analysis/tree/main/Data'
+path = r'nrschultz586\New_York_CitiBike_Analysis\tree\main\Data\Prepared_Data'
 top20 = pd.read_csv(os.path.join(path, 'top_20.csv'), index_col = 0)
 df_DualAxis = pd.read_csv(os.path.join(path, 'avgTemp_BikeRidesDaily.csv'), index_col = 0)
 RideDuration_top20 = pd.read_csv(os.path.join(path, 'RideDuration_top20.csv'))
