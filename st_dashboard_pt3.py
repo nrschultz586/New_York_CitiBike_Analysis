@@ -269,7 +269,7 @@ if page == "Strategic Recommendations":
         st.warning("Image not found. Please ensure 'citi_bike_image.jpg' is available.")
         
     # Key Insights Section
-    st.markdown("### **Weather & Seasonal Impact** (Weather Impact on Bike Usage)")
+    st.markdown("### **Weather & Seasonal Impact**")
     st.markdown("""
     - Ridership drops significantly between November and April, correlating with colder temperatures.
     - Demand is highest from May to September, suggesting the need for seasonal bike distribution adjustments.
