@@ -268,46 +268,76 @@ if page == "Strategic Recommendations":
     except FileNotFoundError:
         st.warning("Image not found. Please ensure 'citi_bike_image.jpg' is available.")
         
+    # Key Insights Section
+    st.markdown("### **Weather & Seasonal Impact** (Weather Impact on Bike Usage Page)")
     st.markdown("""
-    ## **Summary of Key Insights**
-    - **Stations with Long Ride Durations**  
-      - Certain stations have significantly longer ride durations, indicating possible bike retention issues.
-      - Potential causes: Tourist areas, lack of docking stations, or bikes being taken out of service improperly.
-      - Impact: Longer ride durations may reduce bike availability, leading to shortages.
+    - Ridership drops significantly between November and April, correlating with colder temperatures.
+    - Demand is highest from May to September, suggesting the need for seasonal bike distribution adjustments.
+    - Failing to adjust supply could lead to excess bikes in winter and shortages in peak months.
+    """)
+    st.markdown("**Recommendation:** Reduce bike supply in low-demand areas during colder months while maintaining full stock in commuter-heavy zones. Adjust maintenance schedules to prepare bikes for peak season.")
 
-    - **Stations with High Trip Counts**  
-      - Some stations handle far more trips than others, making them critical transit hubs.
-      - Impact: These stations may experience high demand for bikes, requiring frequent rebalancing.
+    st.markdown("### **High-Demand Stations** (Most Popular Stations Page)")
+    st.markdown("""
+    - Some stations handle far more trips than others, making them critical transit hubs.
+    - High trip counts indicate strong demand, but without proper redistribution, bikes may not be available when needed.
+    """)
+    st.markdown("**Recommendation:** Implement real-time tracking and redistribution models to ensure availability. Adjust supply dynamically throughout the day based on peak usage hours.")
 
-    - **Variation in Demand by Location**  
-      - Commuter-heavy areas tend to have shorter, frequent rides.
-      - Tourist-heavy locations may see longer ride durations but fewer total trips.
+    st.markdown("### **Expansion Along the Water** (Waterfront Expansion Page)")
+    st.markdown("""
+    - Locations along Brooklyn Bridge Park and the Hudson River Greenway are experiencing increased demand, especially in warmer months.
+    - Expanding stations in these areas would improve connectivity for riders traveling between boroughs and waterfront attractions.
+    """)
+    st.markdown("**Recommendation:** Use trip data, peak usage trends, and rider feedback to determine the need for additional stations. Connect waterfront stations with ferries and subway stops to improve accessibility.")
 
-    ## **Strategic Recommendations**
-    ### **1. Increase Bike Supply in High-Demand Areas**
-    - Stations with high trip counts should be prioritized for bike redistribution.
-    - Identify peak usage hours and adjust supply accordingly.
+    st.markdown("### **Ride Duration & Bike Availability** (Ride Duration Analysis Page)")
+    st.markdown("""
+    - Certain stations have significantly longer ride durations, possibly due to bike retention issues or lack of docking stations.
+    - Tourist-heavy areas see longer average ride times, while commuter hubs have shorter, more frequent rides.
+    """)
+    st.markdown("**Recommendation:** Implement dynamic bike redistribution strategies to balance supply. Investigate long-duration outliers to identify system errors or areas where additional docking stations may be needed.")
 
-    ### **2. Optimize Docking Station Availability**
-    - Expand docking stations near high-duration stations to prevent riders from extending trips due to lack of docks.
-    - Implement a dynamic rebalancing system to move bikes from low-use stations to high-use stations.
+    # Strategic Recommendations
+    st.header("Strategic Recommendations")
 
-    ### **3. Investigate and Reduce Ride Duration Outliers**
-    - Some stations experience unusually long ride durations, potentially due to bikes not being properly checked in.
-    - Citi Bike should track stations with extreme ride durations and investigate possible issues like system errors or retention abuse.
+    st.markdown("#### **1. Increase Bike Supply in High-Demand Areas**")
+    st.markdown("""
+    - Prioritize high-trip stations for bike redistribution to prevent shortages.
+    - Adjust supply based on peak usage hours to ensure availability during rush hours and weekends.
+    """)
 
-    ### **4. Adjust Pricing or Incentives Based on Usage Patterns**
-    - Offer incentives for users to return bikes to high-demand areas to improve availability.
-    - Implement dynamic pricing to encourage faster turnaround times in bike-shortage zones.
+    st.markdown("#### **2. Optimize Docking Station Availability**")
+    st.markdown("""
+    - Expand docking stations in locations with high ride durations where limited docks may lead to extended trips.
+    - Implement a real-time bike rebalancing system to dynamically move bikes between low-use and high-use stations.
+    """)
 
-    ### **5. Seasonal and Time-Based Adjustments**
-    - Analyze trip counts and ride durations by season to ensure enough bikes are available during peak months.
-    - Implement a higher bike deployment strategy during summer months and major city events.
+    st.markdown("#### **3. Investigate and Reduce Ride Duration Outliers**")
+    st.markdown("""
+    - Identify stations with excessively long ride durations and investigate potential causes.
+    - Address system errors, bike retention issues, and station shortages to improve circulation.
+    """)
 
-    ## **Next Steps**
-    - Integrate real-time tracking for Citi Bike demand trends.
-    - Further analyze user behavior (e.g., commuter vs. casual rider patterns).
-    - Explore alternative transportation modes to complement Citi Bike in underserved areas.
+    st.markdown("#### **4. Adjust Pricing or Incentives Based on Usage Patterns**")
+    st.markdown("""
+    - Offer incentives for returning bikes to high-demand stations.
+    - Implement dynamic pricing to encourage faster returns in peak areas.
+    """)
+
+    st.markdown("#### **5. Seasonal and Time-Based Adjustments**")
+    st.markdown("""
+    - Analyze trip counts and ride durations seasonally to optimize bike availability.
+    - Deploy more bikes during summer months and major city events to accommodate increased usage.
+    """)
+
+    # Next Steps
+    st.header("Next Steps")
+
+    st.markdown("""
+    - **Enhance real-time tracking** to monitor Citi Bike demand trends and adjust availability dynamically.
+    - **Further analyze user behavior** to distinguish between commuters, tourists, and casual riders.
+    - **Explore partnerships with public transit** to expand Citi Bike’s role in the city’s transportation network.
     """)
 
 
