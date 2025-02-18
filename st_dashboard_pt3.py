@@ -269,7 +269,7 @@ if page == "Strategic Recommendations":
         st.warning("Image not found. Please ensure 'citi_bike_image.jpg' is available.")
         
     # Key Insights Section
-    st.markdown("### **Weather & Seasonal Impact** (Weather Impact on Bike Usage Page)")
+    st.markdown("### **Weather & Seasonal Impact** (Weather Impact on Bike Usage)")
     st.markdown("""
     - Ridership drops significantly between November and April, correlating with colder temperatures.
     - Demand is highest from May to September, suggesting the need for seasonal bike distribution adjustments.
@@ -277,21 +277,21 @@ if page == "Strategic Recommendations":
     """)
     st.markdown("**Recommendation:** Reduce bike supply in low-demand areas during colder months while maintaining full stock in commuter-heavy zones. Adjust maintenance schedules to prepare bikes for peak season.")
 
-    st.markdown("### **High-Demand Stations** (Most Popular Stations Page)")
+    st.markdown("### **High-Demand Stations** (Most Popular Stations)")
     st.markdown("""
     - Some stations handle far more trips than others, making them critical transit hubs.
     - High trip counts indicate strong demand, but without proper redistribution, bikes may not be available when needed.
     """)
     st.markdown("**Recommendation:** Implement real-time tracking and redistribution models to ensure availability. Adjust supply dynamically throughout the day based on peak usage hours.")
 
-    st.markdown("### **Expansion Along the Water** (Waterfront Expansion Page)")
+    st.markdown("### **Expansion Along the Water** (Waterfront Expansion)")
     st.markdown("""
     - Locations along Brooklyn Bridge Park and the Hudson River Greenway are experiencing increased demand, especially in warmer months.
     - Expanding stations in these areas would improve connectivity for riders traveling between boroughs and waterfront attractions.
     """)
     st.markdown("**Recommendation:** Use trip data, peak usage trends, and rider feedback to determine the need for additional stations. Connect waterfront stations with ferries and subway stops to improve accessibility.")
 
-    st.markdown("### **Ride Duration & Bike Availability** (Ride Duration Analysis Page)")
+    st.markdown("### **Ride Duration & Bike Availability** (Ride Duration Analysis)")
     st.markdown("""
     - Certain stations have significantly longer ride durations, possibly due to bike retention issues or lack of docking stations.
     - Tourist-heavy areas see longer average ride times, while commuter hubs have shorter, more frequent rides.
